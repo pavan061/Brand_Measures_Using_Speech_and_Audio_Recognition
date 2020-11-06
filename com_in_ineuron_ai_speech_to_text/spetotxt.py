@@ -35,7 +35,7 @@ def get_large_audio_transcription(path, folderPath):
     for i, audio_chunk in enumerate(chunks, start=1):
         # export audio chunk and save it in
         # the `folder_name` directory.
-        chunk_filename = os.path.join(folderPath, f"chunk{i}.wav")
+        chunk_filename = os.path.join(folderPath, f"speech_chunk{i}.wav")
         audio_chunk.export(chunk_filename, format="wav")
         # recognize the chunk
         with sr.AudioFile(chunk_filename) as source:
