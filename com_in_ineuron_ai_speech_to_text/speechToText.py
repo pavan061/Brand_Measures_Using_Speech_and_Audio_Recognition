@@ -6,12 +6,20 @@ def speech2Text(FolderPath):
     fileList = os.listdir(FolderPath)
     for val in fileList:
         r = sr.Recognizer()
-        with sr.AudioFile(os.path.join(FolderPath,"eng.wav")) as source:
+
+        # with sr.AudioFile(os.path.join(FolderPath,"eng.wav")) as source:
+
+        with sr.AudioFile(os.path.join(FolderPath,val)) as source:
+
             audio = r.record(source)
         try:
             textdata = r.recognize_google(audio)
             print("Text data: " + textdata)
+
             # return textdata
+
+            return textdata
+
         except sr.UnknownValueError:
             print(" Audio Error")
 
